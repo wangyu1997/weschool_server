@@ -1,0 +1,22 @@
+server:
+  port: 8001
+  servlet:
+    session:
+      timeout: 15
+  tomcat:
+    max-threads: 800
+    uri-encoding: utf-8
+spring:
+  security:
+    user:
+      name: root
+      password: 19970819wy
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: 127.0.0.1
