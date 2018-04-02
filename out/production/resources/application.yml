@@ -7,6 +7,16 @@ server:
     max-threads: 800
     uri-encoding: utf-8
 spring:
+  application:
+    name: we_shcool_server
+  cloud:
+      config:
+        server:
+          git:
+            url: https://github.com/wangyu1997/weschool_server     # 配置git仓库的地址
+#            search-paths:                                      # git仓库地址下的相对地址，可以配置多个，用,分割。
+            username: wangyu1997                                        # git仓库的账号
+            password: LoVeFoReVeR1314
   security:
     user:
       name: root
@@ -16,7 +26,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
     service-url:
-       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
+       defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:/eureka/
 #      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   instance:
     hostname: 127.0.0.1
